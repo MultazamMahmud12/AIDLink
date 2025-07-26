@@ -6,6 +6,10 @@ import { Children } from "react";
 import Home from "../pages/home/Home";
 import EventList from "../pages/event/EventList";
 import Eventdetail from "../pages/event/Eventdetail";
+import Recipients from "../pages/recipients/Recipients";
+import RecipientDetail from "../pages/recipients/RecipientDetail";
+import Registration from "../pages/registration";
+import Login from "../pages/Login";
 
 
 const router = createBrowserRouter([
@@ -25,18 +29,27 @@ const router = createBrowserRouter([
             path: "/events/:eventId",
             element: <Eventdetail />
         },
-         {
-            path: "/login",
-            element: <div>Login page coming soon...</div>
-        },
-         {
-            path: "/signup",
-            element: <div>Signup page coming soon...</div>
+        {
+            path: "/recipients",
+            element: <Recipients />
         },
         {
-            path: "/apply",
-            element: <div>Application page coming soon...</div>
+            path: "/recipients/:recipientId",
+            element: <RecipientDetail />
         },
+        {
+            path: "/recipients/:recipientId",
+            element: <RecipientDetail />
+        },
+         {
+            path: "/register",
+            element: <Registration />
+        },
+         {
+            path: "/login",
+            element: <Login/>
+        },
+        
         {
             path: "/dashboard",
             element: <div>Dashboard coming soon...</div>

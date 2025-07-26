@@ -1,0 +1,572 @@
+[
+  {
+    "_id": "NGO001",
+    "organizationInfo": {
+      "legalName": "Global Relief Foundation",
+      "commonName": "GRF",
+      "acronym": "GRF",
+      "organizationType": "international_ngo",
+      "registrationNumber": "REG-NGO-2018-001234",
+      "taxId": "TAX-501C3-567890",
+      "establishedDate": "2018-03-15",
+      "website": "https://globalrelieffoundation.org",
+      "email": "info@globalrelieffoundation.org",
+      "phone": "+1-555-0100",
+      "logo": "grf_logo.png"
+    },
+    "addressInfo": {
+      "headquarters": {
+        "street": "123 Humanitarian Boulevard",
+        "city": "New York",
+        "state": "New York",
+        "zipCode": "10001",
+        "country": "USA"
+      },
+      "operationalRegions": [
+        {
+          "region": "South Asia",
+          "countries": ["Bangladesh", "India", "Pakistan", "Nepal"],
+          "isActive": true
+        },
+        {
+          "region": "Southeast Asia",
+          "countries": ["Myanmar", "Thailand", "Cambodia", "Laos"],
+          "isActive": true
+        }
+      ],
+      "fieldOffices": [
+        {
+          "name": "Dhaka Regional Office",
+          "address": "456 Relief Street, Dhaka, Bangladesh",
+          "phone": "+880-555-0101",
+          "email": "dhaka@globalrelieffoundation.org"
+        }
+      ]
+    },
+    "legalDocumentation": {
+      "incorporationCertificate": {
+        "documentNumber": "CERT-2018-001234",
+        "issueDate": "2018-03-15",
+        "issuingAuthority": "New York State Department",
+        "imageUrl": "grf_incorporation_cert.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-15"
+      },
+      "taxExemptStatus": {
+        "status": "501c3",
+        "documentNumber": "EIN-12-3456789",
+        "issueDate": "2018-04-20",
+        "issuingAuthority": "IRS",
+        "imageUrl": "grf_tax_exempt.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-15"
+      },
+      "operatingLicense": {
+        "licenseNumber": "LIC-NGO-2018-567",
+        "issueDate": "2018-05-01",
+        "expiryDate": "2025-05-01",
+        "issuingAuthority": "Department of Social Services",
+        "imageUrl": "grf_operating_license.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-15"
+      },
+      "auditReports": [
+        {
+          "year": 2023,
+          "auditorName": "Ernst & Young",
+          "auditDate": "2024-03-31",
+          "reportUrl": "grf_audit_2023.pdf",
+          "isVerified": true,
+          "cleanOpinion": true
+        },
+        {
+          "year": 2022,
+          "auditorName": "Ernst & Young",
+          "auditDate": "2023-03-31",
+          "reportUrl": "grf_audit_2022.pdf",
+          "isVerified": true,
+          "cleanOpinion": true
+        }
+      ]
+    },
+    "organizationDetails": {
+      "mission": "To provide immediate disaster relief and long-term recovery assistance to communities affected by natural disasters and humanitarian crises worldwide.",
+      "vision": "A world where no community suffers alone in the face of disaster.",
+      "focusAreas": [
+        "disaster_relief",
+        "emergency_response",
+        "community_development",
+        "capacity_building"
+      ],
+      "targetBeneficiaries": [
+        "disaster_affected_communities",
+        "vulnerable_populations",
+        "children_and_families",
+        "elderly_populations"
+      ],
+      "operationalCapacity": {
+        "staffCount": 150,
+        "volunteersCount": 500,
+        "emergencyResponseTeams": 8,
+        "logisticalCapacity": "large_scale",
+        "mobilizationTime": "24_hours"
+      }
+    },
+    "financialInformation": {
+      "annualBudget": {
+        "year": 2024,
+        "totalBudget": 15000000,
+        "programExpenses": 12750000,
+        "administrativeExpenses": 1500000,
+        "fundraisingExpenses": 750000,
+        "programEfficiencyRatio": 85.0
+      },
+      "fundingSources": [
+        {
+          "source": "individual_donations",
+          "percentage": 45,
+          "amount": 6750000
+        },
+        {
+          "source": "corporate_grants",
+          "percentage": 30,
+          "amount": 4500000
+        },
+        {
+          "source": "government_grants",
+          "percentage": 20,
+          "amount": 3000000
+        },
+        {
+          "source": "foundation_grants",
+          "percentage": 5,
+          "amount": 750000
+        }
+      ],
+      "transparencyRating": "4_star",
+      "charityNavigatorRating": "4_star"
+    },
+    "certifications": [
+      {
+        "name": "GuideStar Gold Seal",
+        "issuingOrganization": "Candid",
+        "issueDate": "2024-01-01",
+        "expiryDate": "2024-12-31",
+        "certificateUrl": "grf_guidestar_gold.pdf",
+        "isActive": true
+      },
+      {
+        "name": "Better Business Bureau Accreditation",
+        "issuingOrganization": "BBB",
+        "issueDate": "2023-06-15",
+        "expiryDate": "2025-06-15",
+        "certificateUrl": "grf_bbb_accreditation.pdf",
+        "isActive": true
+      },
+      {
+        "name": "Humanitarian Accountability Partnership",
+        "issuingOrganization": "HAP",
+        "issueDate": "2023-09-01",
+        "expiryDate": "2026-09-01",
+        "certificateUrl": "grf_hap_certification.pdf",
+        "isActive": true
+      }
+    ],
+    "leadership": {
+      "executiveDirector": {
+        "name": "Dr. Sarah Mitchell",
+        "position": "Executive Director",
+        "email": "s.mitchell@globalrelieffoundation.org",
+        "phone": "+1-555-0102",
+        "bio": "25+ years experience in humanitarian work and disaster response",
+        "linkedIn": "https://linkedin.com/in/sarahmitchell",
+        "photo": "sarah_mitchell.jpg"
+      } 
+      
+    },
+    "programs": [
+      {
+        "programId": "PROG001",
+        "name": "Hurricane Response Initiative",
+        "description": "Rapid response program for hurricane-affected communities in the Caribbean and Gulf Coast",
+        "category": "natural_disasters",
+        "status": "active",
+        "budget": 5000000,
+        "beneficiariesReached": 25000,
+        "startDate": "2023-06-01",
+        "endDate": "2025-05-31",
+        "coverImage": "hurricane_response_program.jpg"
+      },
+      {
+        "programId": "PROG002",
+        "name": "Community Resilience Building",
+        "description": "Long-term capacity building program to help communities prepare for and recover from disasters",
+        "category": "community_development",
+        "status": "active",
+        "budget": 3000000,
+        "beneficiariesReached": 15000,
+        "startDate": "2024-01-01",
+        "endDate": "2026-12-31",
+        "coverImage": "community_resilience_program.jpg"
+      }
+    ],
+    "partnerships": [
+      {
+        "partnerName": "United Nations OCHA",
+        "partnerType": "international_organization",
+        "partnershipType": "operational",
+        "agreementDate": "2023-01-15",
+        "description": "Coordination and resource sharing for emergency response operations"
+      },
+      {
+        "partnerName": "Local Community Centers Network",
+        "partnerType": "community_organization",
+        "partnershipType": "implementation",
+        "agreementDate": "2023-08-20",
+        "description": "Ground-level implementation and community outreach partnerships"
+      }
+    ],
+    "registrationStatus": {
+      "platformRegistrationDate": "2024-12-10",
+      "verificationStatus": "verified",
+      "verificationDate": "2024-12-15",
+      "verifiedBy": "platform_admin_001",
+      "approvalStatus": "approved",
+      "approvedBy": "review_committee",
+      "approvalDate": "2024-12-16",
+      "isActive": true,
+      "lastUpdated": "2024-12-16"
+    },
+    "contactPersons": [
+      {
+        "name": "Michael Rodriguez",
+        "position": "Partnership Manager",
+        "email": "m.rodriguez@globalrelieffoundation.org",
+        "phone": "+1-555-0103",
+        "role": "primary_contact"
+      },
+      {
+        "name": "Lisa Wang",
+        "position": "Program Director",
+        "email": "l.wang@globalrelieffoundation.org",
+        "phone": "+1-555-0104",
+        "role": "program_contact"
+      }
+    ],
+    "eventRegistrations": [
+      {
+        "eventId": "1",
+        "eventTitle": "Bangladesh Monsoon Floods 2024",
+        "registrationDate": "2024-07-15",
+        "status": "active",
+        "role": "primary_responder",
+        "servicesOffered": [
+          "emergency_shelter",
+          "food_distribution",
+          "medical_assistance",
+          "water_purification"
+        ],
+        "estimatedBudgetAllocated": 2500000,
+        "expectedBeneficiaries": 50000,
+        "responseTime": "24_hours",
+        "notes": "Leading flood response efforts in Sylhet and Rangpur divisions"
+      },
+      {
+        "eventId": "3",
+        "eventTitle": "Rohingya Refugee Crisis Support",
+        "registrationDate": "2024-06-01",
+        "status": "active",
+        "role": "supporting_organization",
+        "servicesOffered": [
+          "shelter_construction",
+          "education_programs",
+          "livelihood_support"
+        ],
+        "estimatedBudgetAllocated": 1800000,
+        "expectedBeneficiaries": 25000,
+        "responseTime": "48_hours",
+        "notes": "Long-term support for refugee camps in Cox's Bazar"
+      },
+      {
+        "eventId": "4",
+        "eventTitle": "Cyclone Preparedness Program",
+        "registrationDate": "2024-03-20",
+        "status": "standby",
+        "role": "emergency_responder",
+        "servicesOffered": [
+          "early_warning_systems",
+          "evacuation_support",
+          "post_disaster_relief"
+        ],
+        "estimatedBudgetAllocated": 3000000,
+        "expectedBeneficiaries": 100000,
+        "responseTime": "12_hours",
+        "notes": "Pre-positioned resources for coastal cyclone response"
+      }
+    ]
+  },
+  {
+    "_id": "NGO002",
+    "organizationInfo": {
+      "legalName": "Children First International",
+      "commonName": "CFI",
+      "acronym": "CFI",
+      "organizationType": "child_welfare_ngo",
+      "registrationNumber": "REG-NGO-2015-005678",
+      "taxId": "TAX-501C3-234567",
+      "establishedDate": "2015-09-22",
+      "website": "https://childrenfirstintl.org",
+      "email": "contact@childrenfirstintl.org",
+      "phone": "+1-555-0200",
+      "logo": "cfi_logo.png"
+    },
+    "addressInfo": {
+      "headquarters": {
+        "street": "789 Children's Avenue",
+        "city": "Chicago",
+        "state": "Illinois",
+        "zipCode": "60601",
+        "country": "USA"
+      },
+      "operationalRegions": [
+        {
+          "region": "South Asia",
+          "countries": ["Bangladesh", "India", "Pakistan", "Sri Lanka"],
+          "isActive": true
+        },
+        {
+          "region": "Southeast Asia",
+          "countries": ["Myanmar", "Thailand", "Cambodia", "Vietnam"],
+          "isActive": true
+        }
+      ],
+      "fieldOffices": [
+        {
+          "name": "Chittagong Regional Office",
+          "address": "Calle Principal 123, Chittagong, Bangladesh",
+          "phone": "+880-555-0201",
+          "email": "chittagong@childrenfirstintl.org"
+        }
+      ]
+    },
+    "legalDocumentation": {
+      "incorporationCertificate": {
+        "documentNumber": "CERT-2015-005678",
+        "issueDate": "2015-09-22",
+        "issuingAuthority": "Illinois Secretary of State",
+        "imageUrl": "cfi_incorporation_cert.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-20"
+      },
+      "taxExemptStatus": {
+        "status": "501c3",
+        "documentNumber": "EIN-98-7654321",
+        "issueDate": "2015-10-15",
+        "issuingAuthority": "IRS",
+        "imageUrl": "cfi_tax_exempt.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-20"
+      },
+      "operatingLicense": {
+        "licenseNumber": "LIC-NGO-2015-890",
+        "issueDate": "2015-11-01",
+        "expiryDate": "2025-11-01",
+        "issuingAuthority": "Department of Children and Family Services",
+        "imageUrl": "cfi_operating_license.pdf",
+        "isVerified": true,
+        "verificationDate": "2024-01-20"
+      },
+      "auditReports": [
+        {
+          "year": 2023,
+          "auditorName": "Deloitte & Touche",
+          "auditDate": "2024-04-15",
+          "reportUrl": "cfi_audit_2023.pdf",
+          "isVerified": true,
+          "cleanOpinion": true
+        }
+      ]
+    },
+    "organizationDetails": {
+      "mission": "To protect, educate, and empower children in crisis situations and vulnerable communities worldwide.",
+      "vision": "A world where every child has the opportunity to thrive, regardless of their circumstances.",
+      "focusAreas": [
+        "child_protection",
+        "education",
+        "healthcare",
+        "emergency_response"
+      ],
+      "targetBeneficiaries": [
+        "children_in_crisis",
+        "orphaned_children",
+        "children_with_disabilities",
+        "child_refugees"
+      ],
+      "operationalCapacity": {
+        "staffCount": 85,
+        "volunteersCount": 200,
+        "emergencyResponseTeams": 4,
+        "logisticalCapacity": "medium_scale",
+        "mobilizationTime": "48_hours"
+      }
+    },
+    "financialInformation": {
+      "annualBudget": {
+        "year": 2024,
+        "totalBudget": 8500000,
+        "programExpenses": 7225000,
+        "administrativeExpenses": 850000,
+        "fundraisingExpenses": 425000,
+        "programEfficiencyRatio": 85.0
+      },
+      "fundingSources": [
+        {
+          "source": "foundation_grants",
+          "percentage": 40,
+          "amount": 3400000
+        },
+        {
+          "source": "individual_donations",
+          "percentage": 35,
+          "amount": 2975000
+        },
+        {
+          "source": "corporate_sponsorship",
+          "percentage": 15,
+          "amount": 1275000
+        },
+        {
+          "source": "government_grants",
+          "percentage": 10,
+          "amount": 850000
+        }
+      ],
+      "transparencyRating": "3_star",
+      "charityNavigatorRating": "3_star"
+    },
+    "certifications": [
+      {
+        "name": "Child Protection Certification",
+        "issuingOrganization": "Alliance for Child Protection",
+        "issueDate": "2023-03-01",
+        "expiryDate": "2026-03-01",
+        "certificateUrl": "cfi_child_protection_cert.pdf",
+        "isActive": true
+      }
+    ],
+    "leadership": {
+      "executiveDirector": {
+        "name": "Angela Foster",
+        "position": "Executive Director",
+        "email": "a.foster@childrenfirstintl.org",
+        "phone": "+1-555-0202",
+        "bio": "15+ years experience in child welfare and international development",
+        "linkedIn": "https://linkedin.com/in/angelafoster",
+        "photo": "angela_foster.jpg"
+      },
+      "boardOfDirectors": [
+        {
+          "name": "Dr. David Kim",
+          "position": "Board Chair",
+          "background": "Child Psychology and Development Specialist",
+          "photo": "david_kim.jpg"
+        }
+      ]
+    },
+    "programs": [
+      {
+        "programId": "PROG003",
+        "name": "Emergency Child Protection",
+        "description": "Rapid response program to protect children in emergency situations",
+        "category": "child_protection",
+        "status": "active",
+        "budget": 3500000,
+        "beneficiariesReached": 12000,
+        "startDate": "2023-01-01",
+        "endDate": "2025-12-31",
+        "coverImage": "child_protection_program.jpg"
+      }
+    ],
+    "partnerships": [
+      {
+        "partnerName": "UNICEF",
+        "partnerType": "international_organization",
+        "partnershipType": "funding",
+        "agreementDate": "2023-05-10",
+        "description": "Funding and technical support for child protection programs"
+      }
+    ],
+    "registrationStatus": {
+      "platformRegistrationDate": "2024-12-12",
+      "verificationStatus": "verified",
+      "verificationDate": "2024-12-17",
+      "verifiedBy": "platform_admin_002",
+      "approvalStatus": "approved",
+      "approvedBy": "review_committee",
+      "approvalDate": "2024-12-18",
+      "isActive": true,
+      "lastUpdated": "2024-12-18"
+    },
+    "contactPersons": [
+      {
+        "name": "Carlos Mendez",
+        "position": "Field Operations Manager",
+        "email": "c.mendez@childrenfirstintl.org",
+        "phone": "+1-555-0203",
+        "role": "primary_contact"
+      }
+    ],
+    "eventRegistrations": [
+      {
+        "eventId": "1",
+        "eventTitle": "Bangladesh Monsoon Floods 2024",
+        "registrationDate": "2024-07-20",
+        "status": "active",
+        "role": "child_protection_specialist",
+        "servicesOffered": [
+          "child_safe_spaces",
+          "psychological_support",
+          "family_reunification",
+          "education_in_emergencies"
+        ],
+        "estimatedBudgetAllocated": 800000,
+        "expectedBeneficiaries": 15000,
+        "responseTime": "48_hours",
+        "notes": "Focused on protecting children affected by floods in displacement camps"
+      },
+      {
+        "eventId": "3",
+        "eventTitle": "Rohingya Refugee Crisis Support",
+        "registrationDate": "2024-05-15",
+        "status": "active",
+        "role": "primary_responder",
+        "servicesOffered": [
+          "child_protection_services",
+          "educational_programs",
+          "recreational_activities",
+          "mental_health_support"
+        ],
+        "estimatedBudgetAllocated": 2200000,
+        "expectedBeneficiaries": 8000,
+        "responseTime": "24_hours",
+        "notes": "Leading child protection efforts in Rohingya refugee camps"
+      },
+      {
+        "eventId": "2",
+        "eventTitle": "Earthquake Response Pakistan",
+        "registrationDate": "2024-04-10",
+        "status": "completed",
+        "role": "supporting_organization",
+        "servicesOffered": [
+          "emergency_childcare",
+          "trauma_counseling",
+          "educational_support"
+        ],
+        "estimatedBudgetAllocated": 500000,
+        "expectedBeneficiaries": 3000,
+        "responseTime": "72_hours",
+        "notes": "Provided specialized child protection services post-earthquake"
+      }
+    ]
+  }
+]

@@ -8,7 +8,7 @@ const Eventdetail = () => {
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [donationAmount, setDonationAmount] = useState('');
+
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -74,7 +74,7 @@ const Eventdetail = () => {
 
   const handleDonate = () => {
     // Handle donation logic here
-    console.log(`Donating $${donationAmount} to event ${event._id}`);
+    console.log(`Donating to event ${event._id}`);
   };
 
   if (loading) {
@@ -262,37 +262,13 @@ const Eventdetail = () => {
                 </div>
               </div>
 
-              {/* Donation Amount Input */}
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Donation Amount ($)
-                </label>
-                <input
-                  type="number"
-                  value={donationAmount}
-                  onChange={(e) => setDonationAmount(e.target.value)}
-                  placeholder="Enter amount"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-              </div>
-
-              {/* Quick Amount Buttons */}
-              <div className="grid grid-cols-3 gap-2 mb-6">
-                {[25, 50, 100].map((amount) => (
-                  <button
-                    key={amount}
-                    onClick={() => setDonationAmount(amount.toString())}
-                    className="py-2 px-3 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-50"
-                  >
-                    ${amount}
-                  </button>
-                ))}
-              </div>
+             
+              
 
               {/* Donate Button */}
               <button
                 onClick={handleDonate}
-                disabled={!donationAmount || parseFloat(donationAmount) <= 0}
+                
                 className="w-full bg-primary hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 px-4 rounded-md font-medium transition-colors duration-200 flex items-center justify-center gap-2 mb-4"
               >
                 <FiHeart />

@@ -112,10 +112,13 @@ const EventCard = ({ event }) => {
 
       {/* Action Buttons */}
       <div className="flex gap-2 mt-auto">
-        <button className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 flex-1 flex items-center justify-center gap-2">
+        <Link 
+          to={`/recipients?eventId=${event._id}`}
+          className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 flex-1 flex items-center justify-center gap-2"
+        >
           <FiHeart />
-          <span>Donate Now</span>
-        </button>
+          Donate Now
+        </Link>
         <Link 
           to={`/events/${event._id}`}
           className="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"
