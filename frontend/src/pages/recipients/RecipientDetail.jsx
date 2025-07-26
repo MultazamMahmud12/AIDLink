@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
+import getImgUrl, { getOrgFallbackImg } from '../../utils/getImgURL';
 import { 
   FiArrowLeft, 
   FiMapPin, 
@@ -216,8 +217,16 @@ const RecipientDetail = () => {
         </div>
         
         {isImage ? (
-          <div className="bg-gray-100 rounded-md h-32 flex items-center justify-center">
-            <span className="text-gray-500 text-sm">Image Preview: {fileName}</span>
+          <div className="bg-gray-100 rounded-md h-32 flex items-center justify-center overflow-hidden">
+            <img
+              src={getImgUrl(fileName)}
+              alt={doc.type || doc.name}
+              className="max-w-full max-h-full object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.parentElement.innerHTML = `<span class="text-gray-500 text-sm">Image Preview: ${fileName}</span>`;
+              }}
+            />
           </div>
         ) : isPDF ? (
           <div className="bg-red-50 rounded-md h-32 flex items-center justify-center">
@@ -290,10 +299,29 @@ const RecipientDetail = () => {
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
-              <div className="w-20 h-20 bg-primary/10 rounded-lg flex items-center justify-center">
-                <span className="text-3xl font-bold text-primary">
-                  {organization.organizationInfo.acronym}
-                </span>
+              <div className="w-20 h-20 bg-primary/10 rounded-lg flex items-center justify-center overflow-hidden">
+                {organization.organizationInfo?.logo ? (
+                  <img
+                    src={getImgUrl(organization.organizationInfo.logo)}
+                    alt={`${organization.organizationInfo.commonName} logo`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // First fallback: organization type based image
+                      const fallbackImg = getOrgFallbackImg(organization.organizationInfo?.organizationType);
+                      if (e.target.src !== fallbackImg) {
+                        e.target.src = fallbackImg;
+                      } else {
+                        // Final fallback: show acronym
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML = `<span class="text-3xl font-bold text-primary">${organization.organizationInfo.acronym}</span>`;
+                      }
+                    }}
+                  />
+                ) : (
+                  <span className="text-3xl font-bold text-primary">
+                    {organization.organizationInfo.acronym}
+                  </span>
+                )}
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-black mb-2">
@@ -467,9 +495,24 @@ const RecipientDetail = () => {
                   organization.programs.map((program, index) => (
                   <div key={index} className="border rounded-lg p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h4 className="text-lg font-semibold">{program.name}</h4>
-                        <p className="text-gray-600">{program.description}</p>
+                      <div className="flex items-start space-x-4 flex-1">
+                        {/* Program Image */}
+                        {program.coverImage && (
+                          <div className="w-20 h-20 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                            <img
+                              src={getImgUrl(program.coverImage)}
+                              alt={program.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.target.src = getOrgFallbackImg('community_organization');
+                              }}
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1">
+                          <h4 className="text-lg font-semibold">{program.name}</h4>
+                          <p className="text-gray-600">{program.description}</p>
+                        </div>
                       </div>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                         program.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
@@ -608,8 +651,19 @@ const RecipientDetail = () => {
                   <h3 className="text-xl font-semibold mb-4">Executive Leadership</h3>
                   <div className="border rounded-lg p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
-                        <FiUser className="h-8 w-8 text-gray-400" />
+                      <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                        {organization.leadership?.executiveDirector?.photo ? (
+                          <img
+                            src={getImgUrl(organization.leadership.executiveDirector.photo)}
+                            alt={organization.leadership.executiveDirector.name}
+                            className="w-16 h-16 rounded-full object-cover"
+                            onError={(e) => {
+                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(organization.leadership.executiveDirector.name || 'Director')}&size=64&background=059669&color=ffffff&format=png`;
+                            }}
+                          />
+                        ) : (
+                          <FiUser className="h-8 w-8 text-gray-400" />
+                        )}
                       </div>
                       <div className="flex-1">
                         <h4 className="text-lg font-semibold">{organization.leadership.executiveDirector.name}</h4>
@@ -637,10 +691,10 @@ const RecipientDetail = () => {
                       organization.leadership.boardOfDirectors.map((member, index) => (
                         <div key={index} className="border rounded-lg p-4">
                           <div className="flex items-start space-x-3">
-                            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                               {member.photo ? (
                                 <img
-                                  src={`/${member.photo}`}
+                                  src={getImgUrl(member.photo)}
                                   alt={member.name}
                                   className="w-12 h-12 rounded-full object-cover"
                                   onError={(e) => {
@@ -718,10 +772,7 @@ const RecipientDetail = () => {
                 disabled={!donationAmount || parseFloat(donationAmount) <= 0}
                 className="flex-1 bg-primary hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-2 px-4 rounded-md font-medium transition-colors duration-200"
               >
-               <Link  
-               to={`/recipients?eventId=${event._id}`}>
                 Donate
-                </Link>
               </button>
             </div>
           </div>

@@ -6,6 +6,12 @@ import rohingyaCrisis from '../assets/events/rohingya-crisis.jpg';
 import sylhetFloods from '../assets/events/sylhet-floods.jpg';
 import dhakaFire from '../assets/events/dhaka-fire.jpg';
 
+// Import recipient/organization images
+import grfLogo from '../assets/Recipients/grf_logo.png';
+import sarahMitchell from '../assets/Recipients/sarah_mitchell.jpg';
+import hurricaneResponseProgram from '../assets/Recipients/hurricane_response_program.jpg';
+import communityResilienceProgram from '../assets/Recipients/community_resilience_program.jpg';
+
 // Import fallback images from general assets
 import handsImg from '../assets/hands.jpg';
 import healthImg from '../assets/HealthCause.jpg';
@@ -14,9 +20,10 @@ import foodImg from '../assets/food.jpg';
 import crisisImg from '../assets/crisis.jpeg';
 import emergencyImg from '../assets/emergency.jpg';
 
-// Utility function to get image URL for events
+// Utility function to get image URL for events, organizations, and programs
 const getImgUrl = (imageName) => {
   const imageMap = {
+    // Event images
     'feni-flood.jpg': feniFlood,
     'buriganga-pollution.jpg': burigangaPollution,
     'cyclone-mocha.jpg': cycloneMocha,
@@ -36,11 +43,32 @@ const getImgUrl = (imageName) => {
     'elderly-care.jpg': oldPeopleImg,
     'street-children.jpg': handsImg,
     'disability-support.jpg': oldPeopleImg,
-    'mental-health.jpg': healthImg
+    'mental-health.jpg': healthImg,
+    
+    // Organization/Recipient images
+    'grf_logo.png': grfLogo,
+    'sarah_mitchell.jpg': sarahMitchell,
+    'hurricane_response_program.jpg': hurricaneResponseProgram,
+    'community_resilience_program.jpg': communityResilienceProgram,
   };
   
   // Return the mapped image or a default image
   return imageMap[imageName] || handsImg;
+};
+
+// Helper function to get fallback image based on organization type
+export const getOrgFallbackImg = (orgType) => {
+  const fallbackMap = {
+    'non_governmental_organization': handsImg,
+    'healthcare_organization': healthImg,
+    'educational_institution': foodImg,
+    'religious_organization': handsImg,
+    'government_agency': emergencyImg,
+    'international_organization': crisisImg,
+    'community_organization': handsImg,
+    'private_foundation': oldPeopleImg,
+  };
+  return fallbackMap[orgType] || handsImg;
 };
 
 export default getImgUrl;

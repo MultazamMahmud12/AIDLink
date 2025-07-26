@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router';
+import getImgUrl, { getOrgFallbackImg } from '../../utils/getImgURL';
 import { 
   FiMapPin, 
   FiUsers, 
@@ -344,11 +345,18 @@ const Recipients = () => {
                       {/* Organization Logo */}
                       <div className="flex-shrink-0">
                         <img
-                          src={org.organizationInfo?.logo ? `/${org.organizationInfo.logo}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=3b82f6&color=ffffff&format=png`}
+                          src={org.organizationInfo?.logo ? getImgUrl(org.organizationInfo.logo) : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=3b82f6&color=ffffff&format=png`}
                           alt={`${org.organizationInfo?.commonName || org.organizationInfo?.legalName} logo`}
                           className="w-12 h-12 rounded-lg object-cover border"
                           onError={(e) => {
-                            e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=6b7280&color=ffffff&format=png`;
+                            // First fallback: organization type based image
+                            const fallbackImg = getOrgFallbackImg(org.organizationInfo?.organizationType);
+                            if (e.target.src !== fallbackImg) {
+                              e.target.src = fallbackImg;
+                            } else {
+                              // Final fallback: avatar
+                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=6b7280&color=ffffff&format=png`;
+                            }
                           }}
                         />
                       </div>
@@ -403,7 +411,7 @@ const Recipients = () => {
                         {org.programs.slice(0, 3).map((program, idx) => (
                           <div key={idx} className="flex-shrink-0 bg-blue-50 rounded-lg p-2 min-w-[120px]">
                             <img
-                              src={program.coverImage ? `/${program.coverImage}` : `https://picsum.photos/120/64?random=${org._id}-${idx}`}
+                              src={program.coverImage ? getImgUrl(program.coverImage) : `https://picsum.photos/120/64?random=${org._id}-${idx}`}
                               alt={program.name}
                               className="w-full h-16 object-cover rounded mb-2"
                               onError={(e) => {
@@ -443,7 +451,7 @@ const Recipients = () => {
                     <div className="mb-4 bg-gray-50 rounded-lg p-3">
                       <div className="flex items-center gap-3">
                         <img
-                          src={org.leadership.executiveDirector.photo ? `/${org.leadership.executiveDirector.photo}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.leadership.executiveDirector.name || 'Leader')}&size=40&background=059669&color=ffffff&format=png`}
+                          src={org.leadership.executiveDirector.photo ? getImgUrl(org.leadership.executiveDirector.photo) : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.leadership.executiveDirector.name || 'Leader')}&size=40&background=059669&color=ffffff&format=png`}
                           alt={org.leadership.executiveDirector.name}
                           className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
                           onError={(e) => {
