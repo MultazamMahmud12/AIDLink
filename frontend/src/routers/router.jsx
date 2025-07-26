@@ -5,6 +5,7 @@ import App from "../App";
 import { Children } from "react";
 import Home from "../pages/home/Home";
 import EventList from "../pages/event/EventList";
+import Eventdetail from "../pages/event/Eventdetail";
 
 
 const router = createBrowserRouter([
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         },
          {
             path: "/events/:eventId",
-            element: <div>Event details page coming soon...</div>
+            element: <Eventdetail />
         },
          {
             path: "/login",

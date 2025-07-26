@@ -1,5 +1,6 @@
 import { FiHeart, FiCalendar, FiMapPin, FiUsers } from "react-icons/fi";
 import PropTypes from "prop-types";
+import { Link } from "react-router";
 import getImgUrl from "../../utils/getImgURL";
 
 const EventCard = ({ event }) => {
@@ -115,9 +116,12 @@ const EventCard = ({ event }) => {
           <FiHeart />
           <span>Donate Now</span>
         </button>
-        <button className="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md font-medium transition-colors duration-200">
+        <Link 
+          to={`/events/${event._id}`}
+          className="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"
+        >
           Learn More
-        </button>
+        </Link>
       </div>
     </div>
   );

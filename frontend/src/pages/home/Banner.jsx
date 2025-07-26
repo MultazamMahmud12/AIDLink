@@ -106,13 +106,11 @@ const Banner = () => {
 
           {/* CTA Button */}
           <Link
-            to="/apply"
+            to="/events"
             className="inline-flex items-center bg-primary-dark hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            Start an AIDLink
+            
+            Donate Now
           </Link>
         </div>
       </div>
