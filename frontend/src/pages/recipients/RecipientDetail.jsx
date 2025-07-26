@@ -684,7 +684,10 @@ const RecipientDetail = () => {
                 disabled={!donationAmount || parseFloat(donationAmount) <= 0}
                 className="flex-1 bg-primary hover:bg-primary-dark disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-2 px-4 rounded-md font-medium transition-colors duration-200"
               >
+               <Link  
+               to={`/recipients?eventId=${event._id}`}>
                 Donate
+                </Link>
               </button>
             </div>
           </div>
