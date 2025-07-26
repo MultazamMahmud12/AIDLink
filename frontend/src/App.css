@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "./theme.css" layer(theme);
+
+@theme {
+  /* === Fonts === */
+  --font-sans: "Proxima Nova", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* === Colors === */
+  --color-primary: oklch(0.75 0.2 150);         /* ~ #05a660 (green) */
+  --color-primary-dark: oklch(0.65 0.2 150);    /* ~ #048655 */
+  --color-accent: oklch(0.9 0.16 95);           /* ~ #ffd166 (yellow) */
+  --color-gray-text: oklch(0.4 0 0);            /* ~ #4a4a4a */
+  --color-bg-light: oklch(0.98 0 0);            /* ~ #f9f9f9 */
+  --color-white: oklch(1 0 0);                  /* #ffffff */
+  --color-black: oklch(0 0 0);                  /* #000000 */
+
+  /* === Shadows === */
+  --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-gray-text);
+    background-color: var(--color-bg-light);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-black);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+/* Floating animation for banner elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
