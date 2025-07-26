@@ -379,11 +379,14 @@ const RecipientDetail = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-3">Focus Areas</h3>
                   <div className="flex flex-wrap gap-2">
-                    {organization.organizationDetails.focusAreas.map((area, index) => (
+                    {(organization.organizationDetails?.focusAreas || []).map((area, index) => (
                       <span key={index} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                         {area.replace('_', ' ').toUpperCase()}
                       </span>
                     ))}
+                    {(!organization.organizationDetails?.focusAreas || organization.organizationDetails.focusAreas.length === 0) && (
+                      <span className="text-gray-500">Focus areas not specified</span>
+                    )}
                   </div>
                 </div>
 
@@ -434,7 +437,7 @@ const RecipientDetail = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-3">Operational Regions</h3>
                   <div className="space-y-3">
-                    {organization.addressInfo.operationalRegions.map((region, index) => (
+                    {(organization.addressInfo?.operationalRegions || []).map((region, index) => (
                       <div key={index} className="border rounded-lg p-4">
                         <div className="flex items-center justify-between">
                           <h4 className="font-semibold">{region.region}</h4>
@@ -442,9 +445,15 @@ const RecipientDetail = () => {
                             {region.isActive ? 'Active' : 'Inactive'}
                           </span>
                         </div>
-                        <p className="text-gray-600 mt-1">{region.countries.join(', ')}</p>
+                        <p className="text-gray-600 mt-1">{region.countries?.join(', ')}</p>
                       </div>
                     ))}
+                    {(!organization.addressInfo?.operationalRegions || organization.addressInfo.operationalRegions.length === 0) && (
+                      <div className="col-span-2 text-center py-8 text-gray-500">
+                        <FiMapPin className="h-8 w-8 mx-auto mb-2 text-gray-400" />
+                        <p>Operational regions not specified</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -454,7 +463,8 @@ const RecipientDetail = () => {
             {activeTab === 'programs' && (
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold">Active Programs</h3>
-                {organization.programs.map((program, index) => (
+                {(organization.programs || []).length > 0 ? (
+                  organization.programs.map((program, index) => (
                   <div key={index} className="border rounded-lg p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -484,7 +494,13 @@ const RecipientDetail = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+                  ))
+                ) : (
+                  <div className="text-center py-8 text-gray-500">
+                    <FiTarget className="h-8 w-8 mx-auto mb-2 text-gray-400" />
+                    <p>No active programs available</p>
+                  </div>
+                )}
               </div>
             )}
 
@@ -516,7 +532,7 @@ const RecipientDetail = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Funding Sources</h3>
                   <div className="space-y-3">
-                    {organization.financialInformation.fundingSources.map((source, index) => (
+                    {(organization.financialInformation?.fundingSources || []).map((source, index) => (
                       <div key={index} className="border rounded-lg p-4">
                         <div className="flex items-center justify-between mb-2">
                           <span className="font-medium">{source.source.replace('_', ' ').toUpperCase()}</span>
@@ -551,7 +567,7 @@ const RecipientDetail = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Audit Reports</h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {organization.legalDocumentation.auditReports.map((audit, index) => (
+                    {(organization.legalDocumentation?.auditReports || []).map((audit, index) => (
                       <div key={index}>
                         {renderDocumentViewer({
                           type: `${audit.year} Audit Report`,
@@ -564,7 +580,7 @@ const RecipientDetail = () => {
                   </div>
                 </div>
 
-                {organization.certifications && (
+                {organization.certifications && organization.certifications.length > 0 && (
                   <div>
                     <h3 className="text-xl font-semibold mb-4">Certifications</h3>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -617,20 +633,38 @@ const RecipientDetail = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-4">Board of Directors</h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {organization.leadership.boardOfDirectors.map((member, index) => (
-                      <div key={index} className="border rounded-lg p-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
-                            <FiUser className="h-6 w-6 text-gray-400" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold">{member.name}</h4>
-                            <p className="text-primary text-sm font-medium">{member.position}</p>
-                            <p className="text-gray-600 text-sm mt-1">{member.background}</p>
+                    {organization.leadership?.boardOfDirectors?.length > 0 ? (
+                      organization.leadership.boardOfDirectors.map((member, index) => (
+                        <div key={index} className="border rounded-lg p-4">
+                          <div className="flex items-start space-x-3">
+                            <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                              {member.photo ? (
+                                <img
+                                  src={`/${member.photo}`}
+                                  alt={member.name}
+                                  className="w-12 h-12 rounded-full object-cover"
+                                  onError={(e) => {
+                                    e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name || 'Member')}&size=48&background=6b7280&color=ffffff&format=png`;
+                                  }}
+                                />
+                              ) : (
+                                <FiUser className="h-6 w-6 text-gray-400" />
+                              )}
+                            </div>
+                            <div>
+                              <h4 className="font-semibold">{member.name}</h4>
+                              <p className="text-primary text-sm font-medium">{member.position}</p>
+                              <p className="text-gray-600 text-sm mt-1">{member.background}</p>
+                            </div>
                           </div>
                         </div>
+                      ))
+                    ) : (
+                      <div className="col-span-2 text-center py-8 text-gray-500">
+                        <FiUsers className="h-8 w-8 mx-auto mb-2 text-gray-400" />
+                        <p>Board member information not available</p>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>

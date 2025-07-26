@@ -343,22 +343,14 @@ const Recipients = () => {
                     <div className="flex items-start gap-3 flex-1">
                       {/* Organization Logo */}
                       <div className="flex-shrink-0">
-                        {org.organizationInfo?.logo ? (
-                          <img
-                            src={`/${org.organizationInfo.logo}`}
-                            alt={`${org.organizationInfo?.commonName || org.organizationInfo?.legalName} logo`}
-                            className="w-12 h-12 rounded-lg object-cover border"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className={`w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center ${org.organizationInfo?.logo ? 'hidden' : 'flex'}`}>
-                          <span className="text-gray-400 font-medium text-lg">
-                            {(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'O').charAt(0)}
-                          </span>
-                        </div>
+                        <img
+                          src={org.organizationInfo?.logo ? `/${org.organizationInfo.logo}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=3b82f6&color=ffffff&format=png`}
+                          alt={`${org.organizationInfo?.commonName || org.organizationInfo?.legalName} logo`}
+                          className="w-12 h-12 rounded-lg object-cover border"
+                          onError={(e) => {
+                            e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(org.organizationInfo?.commonName || org.organizationInfo?.legalName || 'Organization')}&size=48&background=6b7280&color=ffffff&format=png`;
+                          }}
+                        />
                       </div>
                       
                       <div className="flex-1">
@@ -410,16 +402,14 @@ const Recipients = () => {
                       <div className="flex gap-2 overflow-x-auto">
                         {org.programs.slice(0, 3).map((program, idx) => (
                           <div key={idx} className="flex-shrink-0 bg-blue-50 rounded-lg p-2 min-w-[120px]">
-                            {program.coverImage && (
-                              <img
-                                src={`/${program.coverImage}`}
-                                alt={program.name}
-                                className="w-full h-16 object-cover rounded mb-2"
-                                onError={(e) => {
-                                  e.target.style.display = 'none';
-                                }}
-                              />
-                            )}
+                            <img
+                              src={program.coverImage ? `/${program.coverImage}` : `https://picsum.photos/120/64?random=${org._id}-${idx}`}
+                              alt={program.name}
+                              className="w-full h-16 object-cover rounded mb-2"
+                              onError={(e) => {
+                                e.target.src = `https://via.placeholder.com/120x64/3b82f6/ffffff?text=${encodeURIComponent(program.category || 'Program')}`;
+                              }}
+                            />
                             <p className="text-xs font-medium text-blue-900 line-clamp-2">
                               {program.name}
                             </p>
@@ -452,22 +442,14 @@ const Recipients = () => {
                   {org.leadership?.executiveDirector && (
                     <div className="mb-4 bg-gray-50 rounded-lg p-3">
                       <div className="flex items-center gap-3">
-                        {org.leadership.executiveDirector.photo ? (
-                          <img
-                            src={`/${org.leadership.executiveDirector.photo}`}
-                            alt={org.leadership.executiveDirector.name}
-                            className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className={`w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center ${org.leadership.executiveDirector.photo ? 'hidden' : 'flex'}`}>
-                          <span className="text-gray-500 font-medium text-sm">
-                            {org.leadership.executiveDirector.name?.charAt(0) || 'L'}
-                          </span>
-                        </div>
+                        <img
+                          src={org.leadership.executiveDirector.photo ? `/${org.leadership.executiveDirector.photo}` : `https://ui-avatars.com/api/?name=${encodeURIComponent(org.leadership.executiveDirector.name || 'Leader')}&size=40&background=059669&color=ffffff&format=png`}
+                          alt={org.leadership.executiveDirector.name}
+                          className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                          onError={(e) => {
+                            e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(org.leadership.executiveDirector.name || 'Leader')}&size=40&background=6b7280&color=ffffff&format=png`;
+                          }}
+                        />
                         <div className="flex-1">
                           <p className="text-sm font-medium text-gray-900">
                             {org.leadership.executiveDirector.name}
